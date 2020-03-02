@@ -23,4 +23,4 @@ It requires a uniform input format like this:
 
 The program will print the answer in less than 1 second.
 
-I'm not sure whether "puzzle-solving-program" like this is useful, but if you are interested, feel free to copy the source.
+I'm not sure whether "puzzle-solving-program" like this is useful, but if you are interested, feel free to copy the source code.
