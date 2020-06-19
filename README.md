@@ -1,9 +1,9 @@
 # sudoku-solver
 
 Hello, I'm Jupytor.
+I'm Japanese so my sentences may have some mistakes.
 
-I'm an 18-year-old Japanese student.
-I love coding and solving sudoku (sudoku is a popular puzzle played in everywhere).
+I love coding and solving sudoku (sudoku is a popular puzzle played world wide).
 A few days ago, I came up with an idea to create a sudoku solver, and I made it.
 
 This program will solve any sudoku problem which has only one answer.
@@ -23,4 +23,4 @@ It requires a uniform input format like this:
 
 The program will print the answer in less than 1 second.
 
-I'm not sure whether "puzzle-solving-program" like this is useful, but if you are interested, feel free to copy the source code.
+Feel free to copy and share the source code.
