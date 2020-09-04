@@ -1,5 +1,7 @@
 # sudoku-solver
 
+*Please read this document in raw text*
+
 Hello, I'm Jupytor.
 I'm Japanese so my sentences may have some mistakes.
 
