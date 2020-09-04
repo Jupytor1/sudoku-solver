@@ -1,7 +1,5 @@
 # sudoku-solver
 
-*Please read this document in raw text*
-
 Hello, I'm Jupytor.
 I'm Japanese so my sentences may have some mistakes.
 
@@ -11,6 +9,7 @@ A few days ago, I came up with an idea to create a sudoku solver, and I made it.
 This program will solve any sudoku problem which has only one answer.
 
 It requires a uniform input format like this:
+```
 ......26.
 .1..5....
 ..3..6...
@@ -20,6 +19,7 @@ It requires a uniform input format like this:
 75....9..
 ......1.8
 6...85.3.
+```
     
 '.' means the square is blank.
 
