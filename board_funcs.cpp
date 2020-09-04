@@ -1,37 +1,4 @@
-```c_cpp
-
-#include <iostream>
-#include <algorithm>
-#include <string>
-using namespace std;
-typedef long long ll;
-
-
-class board {
-	private:
-		int h[10][10] = {}, u[10][10], block[4][4][10], row[10][10], column[10][10];
-		bool can[10][10][10];
-
-
-	public:
-		void init();
-
-		void fill(int i, int j, int w);
-		void deny(int i, int j, int w);
-
-		bool all_search();
-		bool block_search();
-		bool row_search();
-		bool column_search();
-
-		void assume();
-		bool wrong();
-		bool end();
-
-		void output();
-
-};
-
+#include "header.h"
 
 void board::init() {
 	int i, j, k;
@@ -53,12 +20,13 @@ void board::init() {
 	}
 }
 
-
 void board::fill(int i, int j, int w) {
 	int ii, jj, a, b;
 	h[i][j] = w;
 	a = i - i % 3;
 	b = j - j % 3;
+
+	//cout << i << ' ' << j << " -> " << w << endl;
 
 	u[i][j] = 0;
 	block[i / 3][j / 3][w] = 0;
@@ -90,7 +58,6 @@ void board::fill(int i, int j, int w) {
 	}
 }
 
-
 void board::deny(int i, int j, int w) {
 	can[i][j][w] = false;
 	u[i][j]--;
@@ -98,7 +65,6 @@ void board::deny(int i, int j, int w) {
 	row[i][w]--;
 	column[j][w]--;
 }
-
 
 bool board::all_search() {
 	int i, j, t;
@@ -113,7 +79,6 @@ bool board::all_search() {
 	}
 	return res;
 }
-
 
 bool board::block_search() {
 	int bi, bj, i, ii, jj, x, y;
@@ -135,7 +100,6 @@ bool board::block_search() {
 	return res;
 }
 
-
 bool board::row_search() {
 	int r, i, jj;
 	bool res = false;
@@ -153,7 +117,6 @@ bool board::row_search() {
 	return res;
 }
 
-
 bool board::column_search() {
 	int c, i, ii;
 	bool res = false;
@@ -170,7 +133,6 @@ bool board::column_search() {
 	}
 	return res;
 }
-
 
 void board::assume() {
 	int i, j, hi, hj, ymin = 10, w;
@@ -192,10 +154,11 @@ void board::assume() {
 
 		while (w <= 9 && !can[hi][hj][w]) w++;
 
+		if (w == 10) return;
+
 		as = *this;
 
-		if (w == 9) return;
-
+		//cout << "as ";
 		as.fill(hi, hj, w);
 
 		con = true;
@@ -219,7 +182,6 @@ void board::assume() {
 
 }
 
-
 bool board::wrong() {
 	int i, j;
 
@@ -229,7 +191,6 @@ bool board::wrong() {
 
 	return false;
 }
-
 
 bool board::end() {
 	int i, j;
@@ -241,40 +202,15 @@ bool board::end() {
 	return true;
 }
 
-
 void board::output() {
 	int i, j;
 	for (i = 0; i < 9; i++) {
-		for (j = 0; j < 9; j++) cout << h[i][j] << ' ';
+		for (j = 0; j < 9; j++) {
+			cout << h[i][j];
+			if (j == 2 || j == 5) cout << '|';
+			else cout << ' ';
+		}
 		cout << endl;
+		if (i == 2 || i == 5) cout << "-----+-----+-----" << endl;
 	}
 }
-
-
-int main(void) {
-	int i, j;
-	string in[9];
-	board base;
-
-	base.init();
-
-	for (i = 0; i < 9; i++) cin >> in[i];
-
-	for (i = 0; i < 9; i++) for (j = 0; j < 9; j++) {
-		if (in[i][j] != '.') base.fill(i, j, in[i][j] - '0');
-	}
-	
-	bool con = true;
-	while (con) {
-		con = base.all_search() || base.block_search() || base.row_search() || base.column_search();
-	}
-	
-	if (!base.end()) {
-		base.assume();
-	}
-
-	base.output();
-
-	return 0;
-}
-```
