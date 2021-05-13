@@ -10,7 +10,13 @@ int main(void) {
 	for (i = 0; i < 9; i++) cin >> in[i];
 
 	for (i = 0; i < 9; i++) for (j = 0; j < 9; j++) {
-		if (in[i][j] != '.') base.fill(i, j, in[i][j] - '0');
+		if (in[i][j] != '.'){
+			if (base.wrong_num(i, j, in[i][j] - '0')){
+				cout << "No Answer" << endl;
+				return 0;
+			}
+			base.fill(i, j, in[i][j] - '0');
+		}
 	}
 
 	//cout << endl;
@@ -26,7 +32,11 @@ int main(void) {
 		base.assume();
 	}
 
-	base.output();
+	if (base.wrong()){
+		cout << "No Answer" << endl;
+	}else{
+		base.output();
+	}
 
 	return 0;
 }

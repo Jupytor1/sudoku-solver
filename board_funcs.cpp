@@ -192,6 +192,14 @@ bool board::wrong() {
 	return false;
 }
 
+bool board::wrong_num(int i, int j, int w){
+	if (can[i][j][w] == false){
+		return true;
+	}else{
+		return false;
+	}
+}
+
 bool board::end() {
 	int i, j;
 

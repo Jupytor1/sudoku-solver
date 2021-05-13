@@ -24,6 +24,7 @@ class board {
 
 		void assume();
 		bool wrong();
+		bool wrong_num(int i, int j, int w);
 		bool end();
 
 		void output();
